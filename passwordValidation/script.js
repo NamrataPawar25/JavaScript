@@ -20,7 +20,7 @@ function checkPassword() {
     else {
         result.textContent = "Password is valid";
     }
-     username.value=""
+    username.value=""
     password.value=""
     result.value=""
 }
