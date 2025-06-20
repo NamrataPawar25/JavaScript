@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Assignment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="text-center my-5">
+        <h1>Calculator</h1><br>
+        <input type="number" id="n1">
+        <input type="number" id="n2">
+        =
+        <div id="result"></div>
+        <div class="my-2">
+            <button class="btn-outline-success" onclick="addition()">+</button>
+            <button class="btn-outline-success" onclick="substraction()">-</button>
+            <button class="btn-outline-success" onclick="multipliction()">*</button>
+            <button class="btn-outline-success" onclick="division()">/</button>
+        </div>
+    </div>
+
+    <div class="text-center my-5">
+        <h1>1. Calculate Factorial of a Number</h1><br>
+        <input type="number" id="fact" placeholder="Enter a Number"><br>
+        <div id="factResult"></div>
+        <button class="btn btn-outline-danger my-2" onclick="getNumber()">Check Factorial</button>
+    </div>
+
+    <div class="text-center my-5">
+        <h1>2. Check Number is Even/Odd</h1><br>
+        <input type="number" id="evenOdd" placeholder="Enter a Number"><br>
+        <div id="evenOddResult"></div>
+        <button class="btn btn-outline-primary my-2" onclick="checkEvenOdd()">Check Even/Odd</button>
+    </div>
+
+    <div class="text-center my-5">
+        <h1>3. Generate a multiplication table for a number</h1><br>
+        <input type="number" id="table" placeholder="Enter a Number"><br>
+        <div id="TableResult"></div>
+        <button class="btn btn-outline-primary my-2" onclick="generateTable()">Generate Table</button>
+    </div>
+
+    <script>
+        let n1 = document.querySelector("#n1")
+        let n2 = document.querySelector("#n2")
+        let result = document.querySelector("#result")
+        function addition() {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            result.textContent = num1 + num2
+        }
+        const substraction = () => {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            result.textContent = num1 - num2
+        }
+        const multipliction = () => {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            result.textContent = num1 * num2
+        }
+        function division() {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            result.textContent = num1 / num2
+        }
+
+    </script>
+
+    <script>
+        let fact = document.querySelector("#fact")
+        let factResult = document.querySelector("#factResult")
+        function findFactorial(number) {
+            let factorial = 1;
+            if (number == 0 || number == 1) {
+                return factorial;
+            }
+            else {
+                for (i = 1; i <= number; i++) {
+                    factorial = factorial * i
+                }
+                return factorial;
+                factResult.textContent = factorial
+            }
+        }
+        function getNumber() {
+            x = Number(fact.value)
+            res = findFactorial(x)
+            factResult.textContent = res
+        }
+    </script>
+    <script>
+        let evenOddInput = document.querySelector("#evenOdd");
+        let evenOddResult = document.querySelector("#evenOddResult");
+
+        function checkEvenOdd() {
+            let num = Number(evenOddInput.value);
+            if (num % 2 === 0) {
+                evenOddResult.textContent = `${num} is Even`;
+            } else {
+                evenOddResult.textContent = `${num} is Odd`;
+            }
+        }
+    </script>
+    <script>
+        let table = document.querySelector("#table")
+        let TableResult = document.querySelector("#TableResult")
+        function generateTable() {
+            let res=`  `
+            for (i = 1; i <= 10; i++) {
+                n3=Number(table.value)
+                res+= `${n3} * ${i}= ${n3*i} `
+                TableResult.textContent=res
+            }
+            table.value
+        }
+    </script>
+</body>
+
+</html>

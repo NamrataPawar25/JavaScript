@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Structure</title>
+</head>
+
+<body>
+    <h1>Assignment 1: Check Number</h1>
+    <input type="number" id="asgn1">
+    <button id="checkNumber">Check Number</button>
+    <div id="Asgn1Result"></div>
+
+    <h1>Assignment 2: Table</h1>
+    <input type="number" id="asgn2">
+    <button id="createTable">Table</button>
+    <div id="Asgn2Result"></div>
+
+    <!-- <script src="./loops.js"></script> -->
+    <script>
+        asgn1 = document.querySelector("#asgn1")
+        Asgn1Result = document.querySelector("#Asgn1Result")
+        function checkNumber() {
+            n1 = Number(asgn1.value)
+            console.log(n1);
+            if (n1 > 0) {
+                console.log("Positive");
+                Asgn1Result.textContent = `number  ${n1} is Positive`
+            } else if (n1 < 0) {
+                console.log("Negetive");
+                Asgn1Result.textContent = `Number ${n1} is NEGETIVE`
+            } else {
+                console.log("Zero")
+                Asgn1Result.textContent = `You have entered ZERO`
+            }
+            asgn1.value = ''
+        }
+        document.querySelector("#checkNumber").addEventListener('click', checkNumber)
+
+
+        asgn2 = document.querySelector("#asgn2")
+        Asgn2Result = document.querySelector("#Asgn2Result")
+        function createTable() {
+            n2 = Number(asgn2.value)
+            for (i = 1; i <= 10; i++) {
+                console.log("3 *", i, "=", n2 * i);
+            }
+            asgn2.value = ''
+        }
+        document.querySelector("#createTable").addEventListener('click', createTable)
+    </script>
+</body>
+
+</html>

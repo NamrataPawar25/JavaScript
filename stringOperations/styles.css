@@ -1,0 +1,6 @@
+.customResult{
+    height: 100px !important;
+    background-color: gray;
+    font-size: 30px;
+    padding: 20px;
+}
