@@ -27,6 +27,34 @@
     <ul id="showResult2"></ul>
   </div>
 
+  <div class="container m-auto my-5 py-3 w-50 bg-warning text-center" style="height: 250px;">
+    <h1>Search in an Array</h1>
+    <input type="text" id="arrayText" placeholder="Enter a text" class="m-2">
+    <button class="btn btn-primary" onclick="search()">Search</button>
+    <ul id="showResult3"></ul>
+  </div>
+
+  <div class="container m-auto my-5 py-3 w-50 bg-warning text-center" style="height: 250px;">
+    <h1>Filter Even and Odd Numbers</h1>
+    <input type="text" id="number" placeholder="Enter a Numbers" class="m-2">
+    <button class="btn btn-primary" onclick="addNumber()">Add Number</button>
+    <button class="btn btn-success" onclick="showEven()">Show Even</button>
+    <button class="btn btn-success" onclick="showOdd()">Show Odd</button>
+    <button class="btn btn-danger" onclick="clear()">Clear</button>
+    <ul id="showResult2"></ul>
+  </div>
+
+  <div class="container m-auto my-5 py-3 w-50 bg-warning text-center" style="height: 250px;">
+    <h1>Sort Name Alphabetically</h1>
+    <input type="text" id="name" placeholder="Enter a Name" class="m-2">
+    <button class="btn btn-primary" onclick="addName()">Add Name</button>
+    <button class="btn btn-success" onclick="sort()">Sort</button>
+    <button class="btn btn-danger" onclick="reset()">Clear</button>
+    <ul id="showResult2"></ul>
+  </div>
+
+
+
   <script src="./script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

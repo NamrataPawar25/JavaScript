@@ -49,12 +49,12 @@ function addMark() {
     markarray.push(newmark);
     smark.value = "";
     console.log(markarray);
-    result.textContent = markarray.join(", ");
+    result2.textContent = markarray.join(", ");
 }
 
 function calculate() {
     if (markarray.length === 0) {
-        result.innerText = "No marks entered.";
+        result2.innerText = "No marks entered.";
         return;
     }
 
@@ -74,7 +74,7 @@ function calculate() {
         if (mark < lowestMark) lowestMark = mark;
     }
 
-    result1.innerText =
+    result2.innerText =
         "Total Marks: " + total +
         "\nHighest Mark: " + highestMark +
         "\nLowest Mark: " + lowestMark +
@@ -84,6 +84,7 @@ function calculate() {
 function reset() {
     markarray = [];
     smark.value = "";
-    result.innerText = "Marks reset";
+    result2.innerText = "Marks reset";
     console.log("Marks reset");
 }
+
