@@ -63,3 +63,23 @@ console.log(`Substraction: ${calculator.num1} - ${calculator.num2} = ${calculato
 console.log(`Multiplication: ${calculator.num1} * ${calculator.num2} = ${calculator.num1 * calculator.num2}`);
 console.log(`Division: ${calculator.num1} / ${calculator.num2} = ${calculator.num1 / calculator.num2}`);
 
+const person1 = {
+    name: "Sita",
+    age: 20
+};
+const person2 = {
+    name: "Gita",
+    age: 20
+};
+
+if (person1.name === person2.name) {
+    console.log("Names are same");
+} else {
+    console.log("Names are different");
+}
+
+if (person1.age === person2.age) {
+    console.log("Age is same");
+} else {
+    console.log("Age is not same");
+}
