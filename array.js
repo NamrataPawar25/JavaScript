@@ -136,3 +136,11 @@ for(i=0; i<num.length;i++){
     }
 }
 console.log(index4);
+
+function mergeUniqueArrays(arr1, arr2) {
+    return [...new Set([...arr1, ...arr2])];
+}
+
+const result = mergeUniqueArrays([1, 2], [2, 3]);
+console.log(result);
+
