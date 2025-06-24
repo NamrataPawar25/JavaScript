@@ -68,7 +68,7 @@ const person1 = {
     age: 20
 };
 const person2 = {
-    name: "Gita",
+    name: "Sita",
     age: 20
 };
 
@@ -83,3 +83,4 @@ if (person1.age === person2.age) {
 } else {
     console.log("Age is not same");
 }
+// eval
