@@ -72,15 +72,9 @@ const person2 = {
     age: 20
 };
 
-if (person1.name === person2.name) {
-    console.log("Names are same");
+if (person1 === person2) {
+    console.log("person are same");
 } else {
-    console.log("Names are different");
-}
-
-if (person1.age === person2.age) {
-    console.log("Age is same");
-} else {
-    console.log("Age is not same");
+    console.log("person are different");
 }
 // eval
