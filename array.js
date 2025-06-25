@@ -137,10 +137,78 @@ for(i=0; i<num.length;i++){
 }
 console.log(index4);
 
-function mergeUniqueArrays(arr1, arr2) {
-    return [...new Set([...arr1, ...arr2])];
+function mergeUniqueArrays(array1, array2) {
+    return [...new Set([...array1, ...array2])];
 }
 
-const result = mergeUniqueArrays([1, 2], [2, 3]);
+let array1 = [1, 2, 3];
+let array2 = [2, 3, 4, 5];
+
+let merged = mergeUniqueArrays(array1, array2);
+console.log(merged); 
+
+let arr3 = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
+function findFrequency(arr) {
+    let frequency = {};
+    arr.forEach(x => {
+        if (frequency[x]) {
+            frequency[x] += 1;
+        } else {
+            frequency[x] = 1;
+        }
+    });
+    return frequency;
+}
+
+let result = findFrequency(arr3);
 console.log(result);
+
+function manualIncludes(arr3, value) {
+  for (let i = 0; i < arr3.length; i++) {
+    if (arr3[i] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+result= manualIncludes(arr3, 4)
+console.log(result);
+
+array1=[1,2,3,4,5,6]
+function shiftLeft(array1) {
+  if (array1.length === 0) return array1;
+
+  const first = array1.shift();   
+  array1.push(first);             
+  return array1;
+}
+console.log(shiftLeft(array1));
+
+function removeduplicates(arr3){
+    return [...new Set(arr3)]
+}
+console.log(removeduplicates(arr3));
+
+function intersection(arrA, arrB) {
+    return arrA.filter(item => arrB.includes(item));
+}
+let arrA = [1,2,3,4,5];
+let arrB = [3,4,5,6,7];
+console.log(intersection(arrA, arrB)); 
+
+function generateMultiplicationTable() {
+    let table = [];
+
+    for (let i = 1; i <= 10; i++) {
+        let row = [];
+        for (let j = 1; j <= 10; j++) {
+            row.push(i * j);
+        }
+        table.push(row);
+    }
+    return table;
+}
+
+let multiplicationTable = generateMultiplicationTable();
+console.log(multiplicationTable);
 
