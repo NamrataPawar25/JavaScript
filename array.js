@@ -212,3 +212,15 @@ function generateMultiplicationTable() {
 let multiplicationTable = generateMultiplicationTable();
 console.log(multiplicationTable);
 
+
+
+function reverseNumber(num) {
+    let rev = 0;
+    while (num > 0) {
+        let digit = num % 10;
+        rev = rev * 10 + digit;
+        num = (num - (num % 10)) / 10;
+    }
+    return rev;
+}
+console.log(reverseNumber(4789) );
