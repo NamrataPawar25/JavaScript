@@ -11,31 +11,17 @@ for (let i = 0; i < arr1.length; i++) {
 console.log("Second highest number is:", secondlargestnum);
 console.log(largestnum);
 
-
-// 0>4
-// 0
-// 4
-// 7>4
-// 4
-// 7
-// 34>7
-// 7
-// 34
-// 76>34
-// 34
-// 76
-// 
 // let x=5
 // {
 //     let x=10;
 // }
-// console.log(x);
+// console.log(x);   //value of x is 5 let is block scoped
 
 // var y=20
 // {
 //     var y=30
 // }
-// console.log(y);
+// console.log(y);   //value of y is 30 var is function scoped
 
 
 marks = [20, 40, 60, 80, 100]
