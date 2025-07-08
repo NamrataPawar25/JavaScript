@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couter</title>
+    <style>
+        .heading{
+            text-align: center;
+            font-size:35px;
+            font-weight: bolder;
+        }
+        .btn_green{
+            background-color: green;
+            margin: 20px 10px;
+            padding: 5px 20px;
+            color: white;
+            font-size: larger;
+            cursor: pointer;
+        }
+        .btn_red{
+            background-color: red;
+            margin: 20px 10px;
+            padding: 5px 20px;
+            color: white;
+            font-size: larger;
+            cursor: pointer;
+        }
+        .divClass{
+            text-align: center;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div class="divClass">
+    <h1 class="heading">Counter App</h1>
+    <div class="counter" id="counter">0</div>
+    <button id="increment" class="btn_green">Increment</button>
+    <button id="decrement" class="btn_green">Decrement</button><br>
+    <button id="reset" class="btn_red">Reset</button>
+    </div>
+</body>
+
+<script>
+    counter= document.querySelector("#counter")
+    increment= document.querySelector("#increment")
+    decrement= document.querySelector("#decrement")
+    reset= document.querySelector("#reset")
+    count= 0
+    counter.textContent= count
+    increment.addEventListener("click",()=>{
+        count++
+        counter.textContent= count 
+    })
+    decrement.addEventListener("click", ()=>{
+        count--
+        counter.textContent= count
+    })
+    reset.addEventListener("click", ()=>{
+        count= 0
+        counter.textContent= count
+    })
+</script>
+</html>
