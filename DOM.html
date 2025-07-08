@@ -97,7 +97,7 @@
                     </a>
                     <p class="fw-bold">$ 83,873 </p>
                 </div>
-                <a href="#"><button id="ChangeImage1" class="btn btn-dark"><i class="fa-solid fa-cart-plus me-2"></i>Add
+                <a href="#"><button id="ChangeImage2" class="btn btn-dark"><i class="fa-solid fa-cart-plus me-2"></i>Add
                         to Cart</button></a>
             </div>
         </div>
@@ -123,19 +123,16 @@
                 const headings = document.querySelectorAll(".heading");
 
                 headings.forEach(heading => {
-                    heading.classList.remove("bg-danger"); // Remove Bootstrap red background
+                    heading.classList.remove("bg-dark"); // Remove Bootstrap red background
                     heading.style.backgroundColor = "white"; // Set custom background
                     heading.style.color = "black"; // Make text visible if needed
                 });
             });
 
-
-
             document.querySelector("#color2").addEventListener("click", () => {
                 document.querySelector("#Image1").setAttribute("src", "./assets/Black_M.jpg")
                 const headings = document.querySelectorAll(".heading");
                 headings.forEach(heading => {
-                    heading.classList.remove("bg-dark"); // Remove Bootstrap red background
                     heading.style.backgroundColor = "black"; // Set custom background
                     heading.style.color = "white"; // Make text visible if needed
                 });
