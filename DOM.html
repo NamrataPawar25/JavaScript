@@ -17,12 +17,13 @@
 </head>
 
 <body>
-    <h1 class="text-center text-danger fw-bolder mb-5">Cars</h1>
+    <h1 class="text-center text-danger fw-bolder mb-5">Vehicle Showroom</h1>
     <div class="container d-flex flex-column flex-md-row gap-5 justify-content-center">
         <div class="card" style="width: 100%; max-width: 540px;">
             <img class="card-img-top" id="Image1">
-            <div class="card-body text-white" style="background-color: rgb(12, 196, 12)">
-                <div class="heading bg-dark rounded text-center fw-bold" style="height: 30px; width:50px">CAR</div>
+            <div class="card-body" style="background-color: rgb(12, 196, 12)">
+                <div class="rounded text-center fw-bold" id="carHeading"
+                    style="height: 30px; width:50px; background-color: black; color: white;">CAR</div>
                 <h5 class="card-title">Mercedes-Benz S-Class 2025</h5>
                 <div class="card-text">
                     <p class="mb-0"><i class="fa-solid fa-car me-2 text-dark"></i>Mileage 4,000 miles</p>
@@ -54,8 +55,10 @@
                     </a>
                     <p class="fw-bold">$ 1.98,000,000 </p>
                 </div>
-                <a href="#"><button id="ChangeImage1" class="heading btn btn-dark"><i
-                            class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button></a>
+
+                <button id="ChangeImage1" class="btn btn-dark"><i class="fa-solid fa-cart-plus me-2"></i>Add to
+                    Cart</button>
+
             </div>
         </div>
         <div class="card" style="width: 100%; max-width: 540px;">
@@ -116,46 +119,42 @@
             //         document.querySelector("#Image1").src = './assets/White_M.jpg'
             //     }
             // })
+
+            const carImg = document.getElementById("Image1");
+            const carHeading = document.getElementById("carHeading");
+            const carButton = document.getElementById("ChangeImage1");
+
             document.querySelector("#color1").addEventListener("click", () => {
-                document.querySelector("#Image1").setAttribute("src", "./assets/White_M.jpg");
-
-                // Select all elements with class "heading"
-                const headings = document.querySelectorAll(".heading");
-
-                headings.forEach(heading => {
-                    heading.classList.remove("bg-dark"); // Remove Bootstrap red background
-                    heading.style.backgroundColor = "white"; // Set custom background
-                    heading.style.color = "black"; // Make text visible if needed
-                });
+                carImg.src = "./assets/White_M.jpg";
+                carHeading.style.backgroundColor = "white";
+                carHeading.style.color = "black";
+                carButton.style.backgroundColor = "white";
+                carButton.style.color = "black";
             });
 
             document.querySelector("#color2").addEventListener("click", () => {
-                document.querySelector("#Image1").setAttribute("src", "./assets/Black_M.jpg")
-                const headings = document.querySelectorAll(".heading");
-                headings.forEach(heading => {
-                    heading.style.backgroundColor = "black"; // Set custom background
-                    heading.style.color = "white"; // Make text visible if needed
-                });
-            })
+                carImg.src = "./assets/Black_M.jpg";
+                carHeading.style.backgroundColor = "black";
+                carHeading.style.color = "white";
+                carButton.style.backgroundColor = "black";
+                carButton.style.color = "white";
+            });
 
             document.querySelector("#color3").addEventListener("click", () => {
-                document.querySelector("#Image1").setAttribute("src", "./assets/Blue_M.jpg")
-                const headings = document.querySelectorAll(".heading");
-                headings.forEach(heading => {
-                    heading.style.backgroundColor = "blue"; // Set custom background
-                    heading.style.color = "white"; // Make text visible if needed
-                });
-            })
+                carImg.src = "./assets/Blue_M.jpg";
+                carHeading.style.backgroundColor = "blue";
+                carHeading.style.color = "white";
+                carButton.style.backgroundColor = "blue";
+                carButton.style.color = "white";
+            });
 
             document.querySelector("#color4").addEventListener("click", () => {
-                document.querySelector("#Image1").setAttribute("src", "./assets/Silver_M.jpg")
-                const headings = document.querySelectorAll(".heading");
-                headings.forEach(heading => {
-                    heading.style.backgroundColor = "silver"; // Set custom background
-                    heading.style.color = "white"; // Make text visible if needed
-                });
-            })
-
+                carImg.src = "./assets/Silver_M.jpg";
+                carHeading.style.backgroundColor = "silver";
+                carHeading.style.color = "black";
+                carButton.style.backgroundColor = "silver";
+                carButton.style.color = "black";
+            });
             // card: 2
             document.getElementById("Image2").setAttribute("alt", "Car Image")
             document.getElementById("Image2").setAttribute("src", "./assets/Black_S.jpg")
