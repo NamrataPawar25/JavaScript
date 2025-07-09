@@ -11,11 +11,17 @@ for (let i = 0; i < arr1.length; i++) {
 console.log("Second highest number is:", secondlargestnum);
 console.log(largestnum);
 
-// let x=5
-// {
-//     let x=10;
-// }
-// console.log(x);   //value of x is 5 let is block scoped
+let x=5
+{
+    let x=10;
+}
+console.log(x);   //value of x is 5 let is block scoped
+
+{
+    let x=17
+    console.log(x);
+}
+console.log(x);
 
 // var y=20
 // {
