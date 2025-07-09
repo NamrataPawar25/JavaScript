@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit List</title>
+  <style>
+    h1 {
+      text-align: center;
+      font-size: xx-large;
+    }
+
+    input {
+      width: 70%;
+      height: 40px;
+      font-size: larger;
+      margin-left: 150px;
+    }
+
+    button {
+      background-color: green;
+      height: 40px;
+      font-size: larger;
+      border-radius: 5px;
+      color: white;
+      padding: 10px;
+    }
+
+    button a:link {
+      text-decoration: none;
+      color: white;
+    }
+
+    button a:visited {
+      color: white;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Add Fruit</h1>
+  <input id="fruit-input" type="text" placeholder="Add Fruit">
+  <button id="addFruit_btn"><a href="#">Add Fruit</a></button>
+  <ul id="fruit-list"></ul>
+  <script>
+    const fruit_input = document.getElementById("fruit-input")
+    const addFruit_btn = document.getElementById("addFruit_btn")
+    const fruit_list = document.getElementById("fruit-list")
+
+    addFruit_btn.addEventListener("click", () => {
+      newfruit = fruit_input.value
+      const newFruitElmt = document.createElement("li")
+      console.log(newfruit, newFruitElmt);
+      newFruitContent = document.createTextNode(newfruit)
+      console.log(newFruitElmt, newFruitContent);
+
+      newFruitElmt.innerHTML = `${newfruit}
+                            <button class="deletFruit">Delete</button>
+    `
+      fruit_list.appendChild(newFruitElmt)
+      fruit_input.value = ""
+      newFruitElmt.querySelector(".deletFruit").addEventListener("click", () => {
+        console.log(newFruitElmt)
+        fruit_list.removeChild(newFruitElmt);
+      });
+
+    })
+    function deleteFruitElmt() {
+
+      console.log(newFruitElmt)
+
+    }
+
+  </script>
+</body>
+
+</html>
