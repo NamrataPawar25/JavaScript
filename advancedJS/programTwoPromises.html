@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        promises = new Promise((resolve, reject) => {
+            fetchData = () => {
+                success = true;
+                if (success) {
+                    resolve("Program Successfully Executed")
+                }
+                else {
+                    reject("Program gets error")
+                }
+            }
+            setTimeout(fetchData, 2000)
+        })
+
+        promises
+            .then((result) => {
+                console.log("Success", result);
+            })
+            .catch((error) => {
+                console.log("error", error);
+            })
+
+        async function fetchProducts() {
+            await fetch("https://674e84f1635bad45618eebc1.mockapi.io/api/v1/zeptoproducts")
+                .then(res => res.json())
+                .then(data => console.log(data))
+                .catch(err => console.log(err))
+        }
+        fetchProducts()
+    </script>
+</body>
+
+</html>
