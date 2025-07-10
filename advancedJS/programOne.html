@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advance JavaScript</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="text-center">Advance JavaScript</h1>
+
+    <div class="d-flex justify-content-center mt-5 pt-5">
+        <div class="spinner-border text-primary" role="status" id="spinner">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div id="stopseconds" class="text-center text-danger fw-bold my-5 fs-1"></div>
+
+    <h2 class="text-center">
+        <span id="hour"></span>:<span id="minute"></span>:<span id="seconds"></span>
+    </h2>
+    <h1 id="dateTime" class="text-center"></h1>
+    <div id="thought" class="text-center my-5 fw-bolder fs-2"></div>
+
+    <script>
+        function showTime() {
+            const newDateTime = new Date();
+            document.querySelector("#hour").textContent = newDateTime.getHours();
+            document.querySelector("#minute").textContent = newDateTime.getMinutes();
+            document.querySelector("#seconds").textContent = newDateTime.getSeconds();
+            document.querySelector("#dateTime").textContent = newDateTime;
+        }
+
+        function dataReady() {
+            document.querySelector("#spinner").style.display = "none";
+            document.querySelector("#thought").textContent = "You are stronger than you think you are.";
+        }
+
+        function pageLoad(callBack) {
+            setTimeout(callBack, 1000);
+        }
+
+        // Start the process
+        pageLoad(dataReady);
+        setInterval(showTime, 1000)
+        // Track how many seconds passed
+        let count = 0;
+        const stopSecondsTimer = setInterval(() => {
+            count++;
+            if (count <= 60) {
+                document.querySelector("#stopseconds").textContent = `Seconds running: ${count} of 60`;
+            }
+            if (count === 60) {
+                clearInterval(stopSecondsTimer);
+                document.querySelector("#stopseconds").textContent = "✅ Stopped after 1 minute.";
+            }
+        }, 1000);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
