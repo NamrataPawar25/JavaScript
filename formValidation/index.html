@@ -1,11 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Validated Registration Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 5px;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .gender-options label {
+            font-weight: normal;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #successMsg {
+            color: green;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <form id="regForm">
+        <h2>Registeration Form</h2>
+
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Your name">
+        <div class="error" id="nameError"></div>
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="example@email.com">
+        <div class="error" id="emailError"></div>
+
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" placeholder="10-digit mobile number">
+        <div class="error" id="mobileError"></div>
+
+        <label>Gender</label>
+        <div class="gender-options">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+        <div class="error" id="genderError"></div>
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Min 6 chars, 1 uppercase, 1 special">
+        <div class="error" id="passwordError"></div>
+
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password" onpaste="return false;">
+        <div class="error" id="confirmPasswordError"></div>
+
+        <button type="submit">Submit</button>
+
+        <div id="successMsg" style="display: none;">Form submitted successfully</div>
+    </form>
+
+    <script>
+        document.getElementById("regForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const mobileError = document.getElementById("mobileError");
+            const genderError = document.getElementById("genderError");
+            const passwordError = document.getElementById("passwordError");
+            const confirmPasswordError = document.getElementById("confirmPasswordError");
+
+            let isValid = true;
+
+            // Name
+            if (name === "") {
+                nameError.textContent = "Name is required";
+                isValid = false;
+            } else {
+                nameError.textContent = "";
+            }
+
+            // Email
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email === "") {
+                emailError.textContent = "Email is required";
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                emailError.textContent = "Enter a valid email";
+                isValid = false;
+            } else {
+                emailError.textContent = "";
+            }
+
+            // Mobile
+            const mobilePattern = /^[0-9]{10}$/;
+            if (mobile === "") {
+                mobileError.textContent = "Mobile number is required";
+                isValid = false;
+            } else if (!mobilePattern.test(mobile)) {
+                mobileError.textContent = "Enter a valid 10-digit number";
+                isValid = false;
+            } else {
+                mobileError.textContent = "";
+            }
+
+            // Gender
+            if (!gender) {
+                genderError.textContent = "Please select gender";
+                isValid = false;
+            } else {
+                genderError.textContent = "";
+            }
+
+            // Password
+            const passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/;
+            if (password === "") {
+                passwordError.textContent = "Password is required";
+                isValid = false;
+            } else if (!passwordPattern.test(password)) {
+                passwordError.textContent = "Must be 6+ chars, 1 uppercase & 1 special";
+                isValid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            // Confirm Password
+            if (confirmPassword !== password || confirmPassword === "") {
+                confirmPasswordError.textContent = "Passwords do not match";
+                isValid = false;
+            } else {
+                confirmPasswordError.textContent = "";
+            }
+
+            // Final check
+            if (isValid) {
+                // alert("Form submitted successfully!");
+                document.getElementById("successMsg").style.display = "block";
+                document.getElementById("regForm").reset(); // Clear inputs
+                setTimeout(() => {
+                    document.getElementById("successMsg").style.display = "none";
+                }, 3000);
+            }
+
+        });
+    </script>
 </body>
+
 </html>
